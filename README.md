@@ -1,40 +1,54 @@
-import sys
-import os
+# 📈 Stock Market Analyzer (Python)
 
-for module in ['analysis', 'data_fetch', 'chart']:
-    if module in sys.modules:
-        del sys.modules[module]
+A **Python-based Stock Market Analysis tool** that fetches real-time market data and performs **technical analysis** using popular indicators like **Moving Averages (MA)** and **Relative Strength Index (RSI)**. The project also provides **professional visualizations** to help users understand price trends and market momentum.
 
-sys.path.append(os.path.dirname(__file__))
+---
 
-from data_fetch import fetch_stock_data
-from analysis import analyze_stock
-from chart import plot_stock
+##  Features
 
-print("Stock Market Project Analyzer Started")
+*  Real-Time Stock Data Fetching** using Yahoo Finance
+*  Technical Indicators
+  * 20-Day Moving Average
+  * 50-Day Moving Average
+  * RSI (14-period)
+  * Smart Market Insights
+  * Bullish / Bearish trend detection
+  * Overbought & Oversold conditions
+  * Professional Charts**
+  * Price + Moving Averages
+  * RSI with highlighted zones
+  * Modular & Clean Code Structure
+## 🛠️ Tech Stack
 
-symbol = input("Enter stock symbol (example: AAPL or TCS.NS): ")
+* Language: Python
+* Libraries Used:
 
-# Fetch OF THE DATA YES !!!
-data = fetch_stock_data(symbol)
+  * `yfinance` – Stock market data
+  * `pandas` – Data manipulation
+  * `matplotlib` – Data visualization
+* Concepts Applied:
 
-#  CHECK IF DATA DOWNLOADED
-if data is None or data.empty:
-    print("\n❌ Could not download stock data.")
-    print("Possible reasons:")
-    print("• Wrong stock symbol")
-    print("• Internet issue")
-    print("• Yahoo Finance temporary block")
-    exit()
+  * Time-series analysis
+  * Technical indicators
+  * Modular programming
+## 📂 Project Structure
+```bash
+Stock-Market-Analyzer/
+│
+├── main.py            # Entry point of the project
+├── data_fetch.py      # Fetches stock data from Yahoo Finance
+├── analysis.py        # Performs technical analysis (MA & RSI)
+├── chart.py           # Generates professional charts
+├── tempCodeRunnerFile.py
+└── python.code-workspace
+## 📊 Sample Output
 
-# Analyze
-analysis_result, data = analyze_stock(data)
+### 📌 Console Analysis
 
-print("\n📊 Stock Analysis Result:")
-print(analysis_result)
+* Price above/below Moving Averages
+* RSI value with market condition
 
-print("\n📈 Data Preview:")
-print(data.head())
+### 📌 Charts
 
-#  Plot Graph
-plot_stock(data, symbol)
+* Stock price with MA(20) & MA(50)
+* RSI with Overbought (70) & Oversold (30) zones
