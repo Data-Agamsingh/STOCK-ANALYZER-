@@ -48,10 +48,11 @@ def analyze_stock(data):
     # RSI Analysis
     result += f"\nRSI: {last_rsi:.2f}\n"
     if last_rsi > 70:
-        result += "⚠️ OVERBOUGHT (RSI > 70) - Possible sell signal\n"
+        result += " OVERBOUGHT (RSI > 70) - Possible sell signal\n"
     elif last_rsi < 30:
-        result += "⚠️ OVERSOLD (RSI < 30) - Possible buy signal\n"
+        result += " OVERSOLD (RSI < 30) - Possible buy signal\n"
     else:
-        result += "✅ NEUTRAL (RSI between 30-70)\n"
+        result += " NEUTRAL (RSI between 30-70)\n"
+
 
     return result, data
